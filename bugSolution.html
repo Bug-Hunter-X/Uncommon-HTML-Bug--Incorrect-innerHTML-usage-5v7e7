@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text should be visible.
+  </div>
+  <div id="nonExistentElement"></div>
+
+  <script>
+    // Check for the existence of the element before using innerHTML.
+    const element = document.getElementById('nonExistentElement');
+    if (element) {
+      element.innerHTML = "This text will show.";
+    } else {
+      console.warn("Element with id 'nonExistentElement' not found.");
+    }
+    document.getElementById('myDiv').innerHTML += "<p>This text will also show.</p>";
+  </script>
+</body>
+</html>
